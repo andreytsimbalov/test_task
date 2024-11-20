@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package twirp.example.haberdasher;
+option go_package = "github.com/example/rpc/haberdasher";
+
+// Haberdasher service makes hats for clients.
+service Haberdasher {
+  // MakeHat produces a hat of mysterious, randomly-selected color!
+  rpc GetDollarRate(ValuteId) returns (DollarRate);
+}
+
+// Size of a Hat, in inches.
+message ValuteId {
+  string id = 1;
+}
+
+// A Hat is a piece of headwear made by a Haberdasher.
+message DollarRate {
+  string name = 1;
+  string char_code = 2;
+  float value = 3;
+}
