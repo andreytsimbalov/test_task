@@ -1,5 +1,6 @@
 from xml.etree.ElementTree import XML, fromstring
 import aiohttp
+import uvicorn
 from twirp.asgi import TwirpASGIApp
 
 import haberdasher_twirp, haberdasher_pb2
@@ -42,3 +43,11 @@ class HaberdasherService(object):
 service = haberdasher_twirp.HaberdasherServer(service=HaberdasherService())
 app = TwirpASGIApp()
 app.add_service(service)
+
+
+if __name__ == "__main__":
+    uvicorn.run(
+        'twirp_server:app',
+        host="0.0.0.0",
+        port=3000,
+    )
