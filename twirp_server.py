@@ -3,7 +3,8 @@ import aiohttp
 import uvicorn
 from twirp.asgi import TwirpASGIApp
 
-import haberdasher_twirp, haberdasher_pb2
+import haberdasher_twirp
+import haberdasher_pb2
 
 
 def find_valute_by_id(xml_object: XML, id: str) -> (str, str, float):
@@ -21,7 +22,7 @@ def find_valute_by_id(xml_object: XML, id: str) -> (str, str, float):
                     value = float(field.text.replace(',', '.'))
             break
     if None in (name, char_code, value):
-        raise Exception(f"Not coeerct ValuteId.id: {id}")
+        raise Exception(f"Not correct ValuteId.id: {id}")
     return name, char_code, value
 
 
