@@ -1,10 +1,6 @@
 # test_task
 
-
-Update files by .proto:
-```
-protoc --python_out=./ --twirpy_out=./ ./haberdasher.proto
-```
+Запуск сервера: через `Run server` либо через `Run docker`. Для проверки работоспособности - запуск `Run client`.
 
 Run server (without docker):
 ```
@@ -20,4 +16,11 @@ Run docker:
 ```
 docker image build -t test_task -f Dockerfile . 
 docker run --name test_task_con --restart unless-stopped -p 3000:3000 test_task
+```
+
+___
+
+Update files by .proto:
+```
+protoc --python_out=./ --twirpy_out=./ ./haberdasher.proto
 ```
